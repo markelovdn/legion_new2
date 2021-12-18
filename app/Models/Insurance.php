@@ -11,6 +11,6 @@ class Insurance extends Model
 
     public function athlete()
     {
-        return $this->hasMany(Athlete::class);
+        return $this->belongsTo(Athlete::class);
     }
 }

@@ -20,7 +20,7 @@ class CreateCoachesTable extends Migration
             $table->string('secondname', 45);
             $table->string('patronymic', 45)->nullable();
             $table->date('dateofbirth')->nullable();
-            $table->foreignId('user_id')->constrained('users', 'id');
+            $table->foreignId('user_id')->nullable()->constrained('users', 'id');
             $table->timestamps();
         });
     }

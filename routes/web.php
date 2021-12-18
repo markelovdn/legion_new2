@@ -1,5 +1,6 @@
 <?php
 
+use App\Models\Athlete;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -18,7 +19,10 @@ Route::get('/', function () {
 });
 
 Route::get('/dashboard', function () {
-    return view('dashboard');
+    $athlete = \App\Models\Athlete::find(3);
+    return view('dashboard', compact('athlete'));
 })->middleware(['auth'])->name('dashboard');
 
 require __DIR__.'/auth.php';
+
+

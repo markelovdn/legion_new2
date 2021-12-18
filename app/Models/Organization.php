@@ -8,4 +8,9 @@ use Illuminate\Database\Eloquent\Model;
 class Organization extends Model
 {
     use HasFactory;
+
+    public function athletes()
+    {
+        return $this->belongsToMany(Athlete::class)->withPivot('coach_type');
+    }
 }

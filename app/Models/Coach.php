@@ -13,4 +13,11 @@ class Coach extends Model
     {
         return $this->hasOne(User::class);
     }
+
+    public function athletes()
+    {
+        return $this->belongsToMany(Athlete::class)->withPivot('coach_type');
+    }
+
+
 }

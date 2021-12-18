@@ -17,9 +17,9 @@ class CreateInsurancesTable extends Migration
             $table->id();
             $table->string('series', 45);
             $table->string('number', 45);
-            $table->date('validuntil');
-            $table->foreignId('athlete_id')->constrained('athletes');
-            $table->string('scanlink');
+            $table->date('validuntil')->nullable();
+            $table->foreignId('athlete_id')->nullable()->constrained('athletes');
+            $table->string('scanlink')->nullable();
 
             $table->timestamps();
         });

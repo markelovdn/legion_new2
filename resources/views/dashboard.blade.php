@@ -4,6 +4,11 @@
             {{ __('Dashboard') }}
         </h2>
     </x-slot>
+    {{$athlete->firstname}}
+
+    @foreach($athlete->coaches as $group)
+    {{$group->pivot->coach_type}}-{{$group->firstname}}<br>
+    @endforeach
 
     <div class="py-12">
         <div class="max-w-7xl mx-auto sm:px-6 lg:px-8">

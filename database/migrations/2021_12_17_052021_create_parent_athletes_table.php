@@ -20,11 +20,11 @@ class CreateParentAthletesTable extends Migration
             $table->string('patronymic', 45)->nullable();
             $table->date('dateofbirth')->nullable();
             $table->set('status', ['main', 'secondary'])->nullable();
-            $table->foreignId('athlete_id')->constrained('athletes');
-            $table->foreignId('workplace_id')->constrained('work_places');
-            $table->foreignId('passport_id')->constrained('passports');
-            $table->foreignId('snils_id')->constrained('snils');
-            $table->foreignId('user_id')->constrained('users');
+            $table->foreignId('athlete_id')->nullable()->constrained('athletes');
+            $table->foreignId('work_place_id')->nullable()->constrained('work_places');
+            $table->foreignId('passport_id')->nullable()->constrained('passports');
+            $table->foreignId('snils_id')->nullable()->constrained('snils');
+            $table->foreignId('user_id')->nullable()->constrained('users');
             $table->timestamps();
         });
     }

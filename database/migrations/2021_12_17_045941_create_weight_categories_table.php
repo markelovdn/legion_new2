@@ -16,7 +16,7 @@ class CreateWeightCategoriesTable extends Migration
         Schema::create('weight_categories', function (Blueprint $table) {
             $table->id();
             $table->string('title', 45);
-            $table->set('gendet', ['male', 'female']);
+            $table->set('gender', ['male', 'female']);
             $table->foreignId('age_id')->constrained('ages');
             $table->timestamps();
         });

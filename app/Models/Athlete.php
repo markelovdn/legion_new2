@@ -24,54 +24,34 @@ class Athlete extends Model
         return $this->hasOne(District::class);
     }
 
-    public function firstCoach()
+    public function groups()
     {
-        return $this->hasOne(Coach::class);
+        return $this->belongsToMany(Group::class);
     }
 
-    public function secondCoach()
+    public function coaches()
     {
-        return $this->hasOne(Coach::class);
-    }
-
-    public function thirdCoach()
-    {
-        return $this->hasOne(Coach::class);
-    }
-
-    public function realCoach()
-    {
-        return $this->hasOne(Coach::class);
-    }
-
-    public function group()
-    {
-        return $this->hasOne(Group::class);
+        return $this->belongsToMany(Coach::class)->withPivot('coach_type');
     }
 
     public function medicalPolicy()
     {
-        return $this->hasOne(MedicalPolicy::class);
+        return $this->belongsToMany(MedicalPolicy::class);
     }
 
     public function passport()
     {
-        return $this->hasOne(Passport::class);
+        return $this->belongsTo(Passport::class);
     }
 
     public function region()
     {
-        return $this->hasOne(Region::class);
+        return $this->belongsTo(Region::class);
     }
 
-    public function scOrganization()
+    public function organizations()
     {
-        return $this->hasOne(Organization::class);
-    }
-
-    public function ssOrganization()
-    {
-        return $this->hasOne(Organization::class);
+        return $this->belongsToMany(Organization::class)->withPivot('org_type');
     }
 
     public function snils()
@@ -87,6 +67,11 @@ class Athlete extends Model
     public function user()
     {
         return $this->hasOne(User::class);
+    }
+
+    public function insurance()
+    {
+        return $this->hasMany(Insurance::class);
     }
 
 }

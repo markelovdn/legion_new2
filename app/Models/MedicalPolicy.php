@@ -8,4 +8,9 @@ use Illuminate\Database\Eloquent\Model;
 class MedicalPolicy extends Model
 {
     use HasFactory;
+
+    public function athlete()
+    {
+        return $this->hasOne(Athlete::class);
+    }
 }

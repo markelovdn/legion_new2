@@ -15,7 +15,7 @@ class CreateSportsCategoriesTitlesTable extends Migration
     {
         Schema::create('sports_categories_titles', function (Blueprint $table) {
             $table->id();
-            $table->string('fulltitle', 100);
+            $table->string('fulltitle', 100)->nullable();
             $table->string('shorttitle', 45);
             $table->timestamps();
         });

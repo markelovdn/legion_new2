@@ -18,4 +18,12 @@ class Group extends Model
     {
         return $this->hasOne(KindsOfSport::class);
     }
+
+    public function athletes()
+    {
+        return $this->belongsToMany(Athlete::class);
+    }
+
+
+
 }

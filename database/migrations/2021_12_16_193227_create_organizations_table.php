@@ -17,7 +17,7 @@ class CreateOrganizationsTable extends Migration
             $table->id();
             $table->string('fulltitle', 345);
             $table->string('shorttitle', 145);
-            $table->string('adress', 345);
+            $table->string('address', 345);
             $table->timestamps();
         });
     }

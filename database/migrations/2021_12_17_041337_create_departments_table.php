@@ -17,8 +17,8 @@ class CreateDepartmentsTable extends Migration
             $table->id();
             $table->string('fulltitle', 345);
             $table->string('shorttitle', 145);
-            $table->string('adress', 345);
-            $table->foreignId('organization_id')->constrained('organizations');
+            $table->string('address', 345);
+            $table->foreignId('organization_id')->nullable()->constrained('organizations');
             $table->timestamps();
         });
     }
