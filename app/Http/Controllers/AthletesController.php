@@ -15,17 +15,16 @@ class AthletesController extends Controller
 {
     use AuthorizesRequests, DispatchesJobs, ValidatesRequests;
 
-    public function index(Request $request)
+    public function index()
     {
-        $request = $request->input('group');
+
         $athletes = Athlete::query();
-        $athletes->with('groups')->whereHas('groups', function (Builder $query, $request) {
-            $query->where('title', 'like', $request);})->get();
+        $athletes->with('groups')->whereHas('groups', function (Builder $query) {
+            $query->where('title', 'like', 'Группа 1');})->get();
         $groups = Group::all();
 //        $athletes = Athlete::with('groups')->whereHas('groups', function (Builder $query) {
 //            $query->where('title', 'like', '');})->get();
 //        $groups = Group::all();
-        dd($athletes);
         return view('athlete/athlete', compact('athletes', 'groups'));
     }
 }
