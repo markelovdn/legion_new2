@@ -2,19 +2,26 @@
     @csrf
 <select name="group" id="">
     @foreach($groups as $group)
-        <option value="{{$group->id}}">{{$group->title}}</option>
+        <option value="{{$group->id}}">{{$group->title}} {{$group->departments->organization->fulltitle}}</option>
     @endforeach
 </select>
     <input type="submit">
 </form>
 
 @foreach($groups as $group)
-    {{$group->title}}<br>
+    <strong>{{$group->title}} {{$group->departments->organization->fulltitle}}</strong>
+    <br>
     @foreach($group->athletes as $athlete)
    {{$athlete->firstname}}<br>
     @endforeach
 @endforeach
 
+<br>
+<h1>Список:</h1>
+
+@foreach($athletes as $athlete)
+    {{$athlete->firstname}}
+@endforeach
 
 {{$groups[1]['title']}}
 
