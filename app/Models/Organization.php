@@ -13,4 +13,9 @@ class Organization extends Model
     {
         return $this->belongsToMany(Athlete::class)->withPivot('coach_type');
     }
+
+    public function departments()
+    {
+        return $this->hasMany(Department::class);
+    }
 }

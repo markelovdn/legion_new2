@@ -13,4 +13,9 @@ class StudyPlace extends Model
     {
         return $this->hasOne(Organization::class);
     }
+
+    public function athlete()
+    {
+        return $this->hasOne(Athlete::class);
+    }
 }

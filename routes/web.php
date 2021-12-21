@@ -1,6 +1,6 @@
 <?php
 
-use App\Models\Athlete;
+use App\Http\Controllers\AthletesController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -17,6 +17,8 @@ use Illuminate\Support\Facades\Route;
 Route::get('/', function () {
     return view('welcome');
 });
+
+Route::match(['get', 'post'], '/athlete', [AthletesController::class, 'index']);
 
 Route::get('/dashboard', function () {
     $athlete = \App\Models\Athlete::find(3);

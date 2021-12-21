@@ -9,21 +9,53 @@ class Athlete extends Model
 {
     use HasFactory;
 
+    //beelongsTo
     public function birthCertificate()
     {
-        return $this->hasOne(BirthCertificate::class);
+        return $this->belongsTo(BirthCertificate::class);
     }
 
     public function country()
     {
-        return $this->hasOne(Country::class);
+        return $this->belongsTo(Country::class);
     }
 
     public function district()
     {
-        return $this->hasOne(District::class);
+        return $this->belongsTo(District::class);
     }
 
+    public function medicalPolicy()
+    {
+        return $this->belongsTo(MedicalPolicy::class);
+    }
+
+    public function passport()
+{
+    return $this->belongsTo(Passport::class);
+}
+
+    public function region()
+    {
+        return $this->belongsTo(Region::class);
+    }
+
+    public function snils()
+{
+    return $this->belongsTo(Snils::class);
+}
+
+    public function studyPlace()
+    {
+        return $this->belongsTo(StudyPlace::class);
+    }
+
+    public function user()
+    {
+        return $this->belongsTo(User::class);
+    }
+
+    //beelongsToMany
     public function groups()
     {
         return $this->belongsToMany(Group::class);
@@ -34,44 +66,16 @@ class Athlete extends Model
         return $this->belongsToMany(Coach::class)->withPivot('coach_type');
     }
 
-    public function medicalPolicy()
-    {
-        return $this->belongsToMany(MedicalPolicy::class);
-    }
-
-    public function passport()
-    {
-        return $this->belongsTo(Passport::class);
-    }
-
-    public function region()
-    {
-        return $this->belongsTo(Region::class);
-    }
-
     public function organizations()
     {
         return $this->belongsToMany(Organization::class)->withPivot('org_type');
     }
 
-    public function snils()
-    {
-        return $this->hasOne(Snils::class);
-    }
-
-    public function studyPlace()
-    {
-        return $this->hasOne(StudyPlace::class);
-    }
-
-    public function user()
-    {
-        return $this->hasOne(User::class);
-    }
-
+    //hasOne
     public function insurance()
-    {
-        return $this->hasMany(Insurance::class);
-    }
+{
+    return $this->hasOne(Insurance::class);
+}
+
 
 }

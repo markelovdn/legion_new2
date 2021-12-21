@@ -9,8 +9,8 @@ class Department extends Model
 {
     use HasFactory;
 
-    public function organization()
+    public function organizations()
     {
-        return $this->hasOne(Organization::class);
+        return $this->belongsTo(Organization::class);
     }
 }

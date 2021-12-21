@@ -10,6 +10,7 @@ use App\Models\BirthCertificate;
 use App\Models\Coach;
 use App\Models\Competition;
 use App\Models\CompetitionsRanksPoint;
+use App\Models\CompetitionsResult;
 use App\Models\Decree;
 use App\Models\Department;
 use App\Models\District;
@@ -54,6 +55,7 @@ class DatabaseSeeder extends Seeder
         AttestationResult::factory(3)->create();
         Competition::factory(3)->create();
         CompetitionsRanksPoint::factory(3)->create();
+        CompetitionsResult::factory(3)->create();
         Decree::factory(3)->create();
         Department::factory(3)->create();
         Organization::factory(3)->create();

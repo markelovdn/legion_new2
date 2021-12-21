@@ -15,13 +15,13 @@ class CreateCompetitionsResultsTable extends Migration
     {
         Schema::create('competitions_results', function (Blueprint $table) {
             $table->id();
-            $table->integer('number_of_fights');
-            $table->integer('place');
-            $table->foreignId('athlete_id')->constrained('athletes');
-            $table->foreignId('competition_id')->constrained('competitions');
-            $table->foreignId('weight_id')->constrained('weight_categories');
-            $table->foreignId('age_id')->constrained('ages');
-            $table->foreignId('rankpoint_id')->constrained('competitions_ranks_points');
+            $table->integer('number_of_fights')->nullable();
+            $table->integer('place')->nullable();
+            $table->foreignId('athlete_id')->nullable()->constrained('athletes');
+            $table->foreignId('competition_id')->nullable()->constrained('competitions');
+            $table->foreignId('weight_id')->nullable()->constrained('weight_categories');
+            $table->foreignId('age_id')->nullable()->constrained('ages');
+            $table->foreignId('rankpoint_id')->nullable()->constrained('competitions_ranks_points');
             $table->timestamps();
         });
     }
