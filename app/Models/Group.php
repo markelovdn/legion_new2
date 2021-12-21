@@ -11,7 +11,7 @@ class Group extends Model
 
     public function departments()
     {
-        return $this->hasOne(Department::class);
+        return $this->belongsTo(Department::class);
     }
 
     public function kindOfSport()

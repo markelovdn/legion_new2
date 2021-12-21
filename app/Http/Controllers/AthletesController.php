@@ -17,11 +17,15 @@ class AthletesController extends Controller
 
     public function index()
     {
+        $groupId = request('group');
 
-        $athletes = Athlete::query();
-        $athletes->with('groups')->whereHas('groups', function (Builder $query) {
-            $query->where('title', 'like', 'Группа 1');})->get();
-        $groups = Group::all();
+        $athletes = Athlete::whereHas('groups', function ($query) use ($groupId) {
+            $query->where('id', $groupId);
+        })->get();
+
+        $groups = Group::all()->load(['departments.organization']);
+
+
 //        $athletes = Athlete::with('groups')->whereHas('groups', function (Builder $query) {
 //            $query->where('title', 'like', '');})->get();
 //        $groups = Group::all();
