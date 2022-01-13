@@ -21,6 +21,7 @@ use App\Models\License;
 use App\Models\MedicalInspection;
 use App\Models\Organization;
 use App\Models\ParentAthlete;
+use App\Models\Parents;
 use App\Models\Payment;
 use App\Models\PaymentsTitle;
 use App\Models\SportsCategoriesTitle;
@@ -46,10 +47,26 @@ class DatabaseSeeder extends Seeder
     public function run()
     {
         Coach::factory(3)->create();
+        Parents::factory(3)->create();
         Athlete::factory(3)
-            ->hasAttached(Group::factory()->count(3))
-            ->hasAttached(Coach::factory()->count(3), ['coach_type'=>Factory::create()->randomElement(['1','2','3','4'])])
-            ->hasAttached(Organization::factory()->count(3), ['org_type'=>Factory::create()->randomElement(['1','2'])])
+            ->hasAttached(Group::factory()->count(3), [
+                'created_at'=>Factory::create()->dateTime,
+                'updated_at'=>Factory::create()->dateTime])
+            ->hasAttached(Coach::factory()->count(3), [
+                'coach_type'=>Factory::create()->randomElement(['1','2','3','4']),
+                'created_at'=>Factory::create()->dateTime,
+                'updated_at'=>Factory::create()->dateTime])
+            ->hasAttached(Organization::factory()->count(3), [
+                'org_type'=>Factory::create()->randomElement(['1','2']),
+                'created_at'=>Factory::create()->dateTime,
+                'updated_at'=>Factory::create()->dateTime])
+            ->hasAttached(Department::factory()->count(3), [
+                'created_at'=>Factory::create()->dateTime,
+                'updated_at'=>Factory::create()->dateTime])
+            ->hasAttached(Parents::factory()->count(3), [
+                'parent_type'=>Factory::create()->randomElement(['1','2']),
+                'created_at'=>Factory::create()->dateTime,
+                'updated_at'=>Factory::create()->dateTime])
             ->create();
         Attestation::factory(3)->create();
         AttestationResult::factory(3)->create();
@@ -57,8 +74,8 @@ class DatabaseSeeder extends Seeder
         CompetitionsRanksPoint::factory(3)->create();
         CompetitionsResult::factory(3)->create();
         Decree::factory(3)->create();
-        Department::factory(3)->create();
         Organization::factory(3)->create();
+        Department::factory(3)->create();
         WorkPlace::factory(3)->create();
         Group::factory(3)->create();
         WeightCategory::factory(3)->create();
@@ -66,7 +83,7 @@ class DatabaseSeeder extends Seeder
         KindsOfSport::factory(3)->create();
         License::factory(3)->create();
         MedicalInspection::factory(3)->create();
-        ParentAthlete::factory(3)->create();
+
         Payment::factory(3)->create();
         SportsCategory::factory(3)->create(); //Ошибка повторного сида
         StudyPlace::factory(3)->create();

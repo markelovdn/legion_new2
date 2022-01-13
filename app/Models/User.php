@@ -20,6 +20,7 @@ class User extends Authenticatable
     protected $fillable = [
         'name',
         'email',
+        'phone',
         'password',
     ];
 
@@ -47,8 +48,8 @@ class User extends Authenticatable
         return $this->hasOne(Athlete::class);
     }
 
-    public function coaches()
+    public function coach()
     {
-        return $this->hasOne(Coaches::class);
+        return $this->hasOne(Coach::class);
     }
 }

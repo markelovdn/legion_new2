@@ -9,8 +9,13 @@ class WorkPlace extends Model
 {
     use HasFactory;
 
-    public function organization()
+    public function organizations()
     {
-        return $this->hasOne(Organization::class);
+        return $this->belongsTo(Organization::class);
+    }
+
+    public function parent()
+    {
+        return $this->hasOne(ParentAthlete::class);
     }
 }

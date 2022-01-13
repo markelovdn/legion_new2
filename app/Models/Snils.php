@@ -13,4 +13,9 @@ class Snils extends Model
     {
         return $this->hasOne(Athlete::class);
     }
+
+    public function parent()
+    {
+        return $this->hasOne(ParentAthlete::class);
+    }
 }

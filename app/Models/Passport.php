@@ -9,8 +9,20 @@ class Passport extends Model
 {
     use HasFactory;
 
+    protected $fillable = [
+        'series',
+        'email',
+        'phone',
+        'password',
+    ];
+
     public function athlete()
     {
         return $this->hasOne(Athlete::class);
+    }
+
+    public function parent()
+    {
+        return $this->hasOne(ParentAthlete::class);
     }
 }

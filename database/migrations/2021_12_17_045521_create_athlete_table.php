@@ -20,7 +20,7 @@ class CreateAthleteTable extends Migration
             $table->string('secondname', 45);
             $table->string('patronymic', 45)->nullable();
             $table->date('dateofbirth')->nullable();
-            $table->set('gender', ['male', 'female'])->nullable();
+            $table->string('gender')->nullable();
             $table->string('photo', 256)->nullable();
             $table->string('address', 500)->nullable();
             $table->integer('status')->nullable();

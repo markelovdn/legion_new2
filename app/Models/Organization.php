@@ -18,4 +18,9 @@ class Organization extends Model
     {
         return $this->hasMany(Department::class);
     }
+
+    public function workplaces()
+    {
+        return $this->hasMany(WorkPlace::class);
+    }
 }

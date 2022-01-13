@@ -34,7 +34,7 @@ class AthleteFactory extends Factory
             'address' => $this->faker->address,
             'gender' => $this->faker->randomElement(['male', 'female']),
             'photo' => $this->faker->imageUrl,
-            'status' => $this->faker->randomNumber(1,0),
+            'status' => $this->faker->randomElement(['1', '0']),
             'studyplace_id'=>StudyPlace::factory(),
             'country_id'=>Country::factory(),
             'district_id'=>District::factory(),

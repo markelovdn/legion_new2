@@ -14,8 +14,10 @@ class CreateAthleteGroupTable extends Migration
     public function up()
     {
         Schema::create('athlete_group', function (Blueprint $table) {
+            $table->id();
             $table->foreignId('athlete_id')->constrained('athletes');
             $table->foreignId('group_id')->constrained('groups');
+            $table->timestamps();
         });
     }
 

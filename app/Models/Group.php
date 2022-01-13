@@ -21,7 +21,7 @@ class Group extends Model
 
     public function athletes()
     {
-        return $this->belongsToMany(Athlete::class);
+        return $this->belongsToMany(Athlete::class)->withPivot('created_at');;
     }
 
 

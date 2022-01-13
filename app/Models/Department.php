@@ -13,4 +13,9 @@ class Department extends Model
     {
         return $this->belongsTo(Organization::class);
     }
+
+    public function athletes()
+    {
+        return $this->belongsToMany(Athlete::class)->withPivot('coach_type');
+    }
 }
